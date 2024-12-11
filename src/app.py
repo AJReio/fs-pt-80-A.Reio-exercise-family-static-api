@@ -60,7 +60,7 @@ def get_single_member(id):
     member = jackson_family.get_member(id)
     return jsonify(member), 200
 
-@app.route('/member', methods = ('POST'))
+@app.route('/member', methods = ['POST'])
 def create_member():
     member = request.json
     jackson_family.add_member(member)
@@ -72,9 +72,9 @@ def delete_single_member(id):
      member = jackson_family.get_member(id)
      if member:
          jackson_family.delete_member(id)
-         return jsonify({"Member succesfully eliminated."})
+         return "Member succesfully eliminated."
      else:
-         return jsonify({"Error, membert wasn't found."})
+         return "Error, member wasn't found."
 
     # this is how you can use the Family datastructure by calling its methods
    # members = jackson_family.get_all_members()
